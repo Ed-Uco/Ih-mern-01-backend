@@ -21,7 +21,7 @@ app.use(express.json())
 app.use("/guitars", require("./routes/guitars"))
 app.use("/stores", require("./routes/stores.Routes"))
 
-
+app.use("/users", require("./routes/users.Routes"))
 
 
 //4.Server
