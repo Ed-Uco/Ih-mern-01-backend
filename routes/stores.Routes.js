@@ -17,6 +17,11 @@ router.get("/readall", storeController.readAll)
 //Leer una guitarra 
 router.get("/readone/:id", storeController.readOne)
 
+//Actualizar guitarra
+router.put("/edit/:id", storeController.edit)
+
+//Delete guitarra
+router.delete("/delete/:id", storeController.delete)
 
 
 //Exportaciones

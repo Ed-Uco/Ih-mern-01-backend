@@ -79,3 +79,59 @@ exports.readOne = async (req, res) => {
 	}
 
 }
+
+//-------------------EDIT-------------------
+exports.edit = async (req, res) => {
+
+    const { id } = req.params
+
+    const { 
+        domicilio,
+        telefono
+     } = req.body
+
+     try {
+        const updateStore = await Store.findByIdAndUpdate(
+            id, 
+        {
+			domicilio,
+			telefono
+        },
+            {new: true}
+        )
+        
+        res.json({
+            msg: "Tienda actualizada con exito",
+            data: updateStore
+        })
+
+     } catch (error) {
+        res.status(500).json({
+			msg: "hubo un error obteniendo los datos.",
+			error: error
+		})
+     }
+}
+
+//-------------------BORRAR-------------------
+exports.delete = async (req, res) => {
+
+	const { id } = req.params
+
+	try {
+		
+		const deletedTienda = await Store.findByIdAndRemove({_id: id})
+
+		res.json({
+			msg: "Tienda borrada con éxito.",
+			data: deletedTienda
+		})
+
+	} catch (error) {
+		res.status(500).json({
+			msg: "Hubo un error borrando la tienda.",
+			error: error
+		})
+	}
+
+}
