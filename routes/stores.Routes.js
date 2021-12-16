@@ -8,19 +8,19 @@ const storeController  =require("./../controllers/store.Controller")
 
 
 //2. Ruteo (Router)
-//Crear Guitarra
+//Crear Tienda
 router.post("/create", storeController.create)
 
-// LEER GUITARRAS
+// LEER TIENDAS
 router.get("/readall", storeController.readAll)
 
-//Leer una guitarra 
+//Leer una tienda 
 router.get("/readone/:id", storeController.readOne)
 
-//Actualizar guitarra
+//Actualizar tienda
 router.put("/edit/:id", storeController.edit)
 
-//Delete guitarra
+//Delete tienda
 router.delete("/delete/:id", storeController.delete)
 
 
